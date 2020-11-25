@@ -11,7 +11,9 @@
           v-on:click.native="goHome()"
         />
       </div>
-      <h1 class="my-5 text-center">Login</h1>
+      <h3 class="my-5 text-center">
+        Login imitation app only use for presentation
+      </h3>
       <form>
         <label for="email" hidden>E-Mail Address</label>
         <div>
@@ -44,7 +46,13 @@
           </div>
         </div>
         <div>
-          <v-btn type="submit" @click="handleSubmit" elevation="2" rounded text
+          <v-btn
+            type="submit"
+            @click="handleSubmit"
+            elevation="2"
+            rounded
+            block
+            text
             >Login</v-btn
           >
         </div>

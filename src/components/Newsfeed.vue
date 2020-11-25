@@ -7,6 +7,7 @@
         :date="n.date"
         :text="n.text"
         :total="n"
+        style="cursor: pointer"
       />
     </div>
   </div>
