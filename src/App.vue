@@ -1,48 +1,54 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="white"
-      dark>
-    <router-link to="/">Home</router-link>
-      <v-spacer></v-spacer>
-        <div class="d-flex">
-          <v-img
-            class="shrink mr-2 img"
-            contain
-            :src="require('./assets/avans_logo.png')"
-            transition="scale-transition"
-            height="40"
-            v-on:click.native="goHome()"/>
-      </div>
-    </v-app-bar>
-    <v-main>
-      <transition
-        name="fade"
-        mode="out-in">
-        <router-view/>
+  <v-app style="background-color: #c6002a">
+    <div class="">
+      <v-img
+        class="shrink mr-2 img"
+        contain
+        :src="require('./assets/logo-white.png')"
+        transition="scale-transition"
+        height="40"
+        v-on:click.native="goHome()"
+      />
+    </div>
+    <v-main class="wrapper">
+      <transition name="fade" mode="out-in">
+        <router-view />
       </transition>
     </v-main>
-  </v-app> 
+  </v-app>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   methods: {
-      goHome: function(){
-          this.$router.replace({name : 'Home'})
-      }
-  }
+    goHome: function () {
+      this.$router.replace({ name: "Home" });
+    },
+  },
 };
 </script>
 
 <style scoped>
 .img {
-  float:right;
+  float: right;
+  margin-top: 2rem;
+  cursor: pointer;
 }
 
-#app{
+.wrapper {
+  width: 35rem;
+  height: 50rem;
+  margin: 10rem auto;
+  overflow: scroll;
+  background-color: white;
+  border-radius: 1.5rem;
+  display: block;
+  border: solid 2px white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#app {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -55,6 +61,6 @@ export default {
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 </style>

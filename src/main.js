@@ -8,7 +8,7 @@ import UserService from './services/userService'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
 import News from './components/News'
-//import Login from './components/Login'
+import Login from './components/Login'
 Vue.use(VueRouter)
 
 Vue.config.productionTip = false
@@ -17,8 +17,9 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '*', component: NotFound },
-    { path: '/', name : "Home", component: Home},
-    { path: '/news', name : "News", component: News}
+    { path: '/', name: "Home", component: Home },
+    { path: '/login', name: "Login", component: Login },
+    { path: '/news', name: "News", component: News }
   ]
 })
 
@@ -27,7 +28,7 @@ const router = new VueRouter({
 di.factory('users', () => new UserService())
 
 Object.defineProperty(Vue.prototype, '$di', {
-  get(){
+  get() {
     return di;
   }
 });
@@ -35,6 +36,6 @@ Object.defineProperty(Vue.prototype, '$di', {
 
 //Create the Vue instance
 new Vue({
-  vuetify,router,
+  vuetify, router,
   render: h => h(App)
 }).$mount('#app')
