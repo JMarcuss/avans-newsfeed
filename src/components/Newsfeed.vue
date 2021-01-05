@@ -30,7 +30,29 @@ export default {
     click: function (json) {
       this.$router.replace({ name: "News", params: { data: json } });
     },
+
+    fetchNewsItemsPerUser (id) {
+      fetch("https://julesmarcus.nl/api/newsfeed/" + id)
+      .then (response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          alert("Server returned" + response.status + " : " + response.statusText);
+        }
+      })
+      .then(data => {
+        console.log(data)
+        this.news = data
+        this.responseAvailable == true;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+    }
   },
+    mounted() {
+      this.fetchNewsItemsPerUser(1);
+    }
 };
 </script>
 
